@@ -45,6 +45,13 @@ sub new {
         'heart-beat' => '0,0'
     };
 
+    if (defined $connect_headers->{'accept-version'}
+        and length($connect_headers->{'accept-version'}) > 0
+        and $connect_headers->{'accept-version'} =~ m/^(?:1.0,)?(?:1.1,)?(?:1.2)?$/
+    ) {
+        $self->{connect_headers}{'accept-version'} = $connect_headers->{'accept-version'};
+    }
+
     if (defined $connect_headers->{'virtual-host'}) {
         $self->{connect_headers}{host} = $connect_headers->{'virtual-host'};
     }
