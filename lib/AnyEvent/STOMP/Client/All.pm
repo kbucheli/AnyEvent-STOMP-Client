@@ -14,7 +14,7 @@ our $VERSION = '0.39';
 
 
 my $SEPARATOR_ID_ACK = '#';
-my $SEPARATOR_BROKER_ID = ':';
+my $SEPARATOR_BROKER_ID = '-';
 
 sub new {
     my $class = shift;
